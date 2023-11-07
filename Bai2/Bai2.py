@@ -82,7 +82,13 @@ def plot_expression():
         plt.show()
     else:
         messagebox.showerror("Lỗi", "Vui lòng tính đạo hàm trước khi vẽ biểu đồ.")
-
+def reset():
+    degree_entry.delete(0, 'end')
+    coefficients_entry.delete(0, 'end')
+    variable_entry.delete(0, 'end')
+    lower_limit_entry.delete(0, 'end')
+    upper_limit_entry.delete(0, 'end')
+    result_label.config(text="")
 # Tạo cửa sổ giao diện
 root = tk.Tk()
 root.title("Tính Đạo Hàm và Tích Phân Của Phương Trình")
@@ -139,6 +145,8 @@ calculate_integral_button.pack()
 plot_expression_button = tk.Button(root, text="Vẽ Biểu Đồ", command=plot_expression)
 plot_expression_button.pack()
 
+reset_button = tk.Button(root, text="Reset", command=reset)
+reset_button.pack()
 # Nhãn kết quả
 result_label = tk.Label(root, text="")
 result_label.pack()
